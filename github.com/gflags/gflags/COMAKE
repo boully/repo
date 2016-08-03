@@ -1,0 +1,43 @@
+project = "gflags"
+repo_root = "."
+
+CC = "gcc"
+
+CXX = "g++"
+
+# C预处理参数
+c_pre_flags = "-DGNU_SOURCE"
+
+# C编译参数
+c_compile_flags = "-Wall"
+
+# C++编译参数
+cxx_compile_flags = "-Wall -std=c++11"
+
+# 优化等级,只对release生效
+opt_level = "-O3"
+
+# 链接参数
+ld_flags = "-lpthread"
+
+# 搜索头文件路径
+include_path = "."
+
+# 搜索库文件路径
+library_path = "."
+
+[[dependency]]
+uri = ""
+tag = ""
+
+[[output]]
+sources = ""
+headers = ""
+libs = ""
+bin = ""
+so = ""
+a = ""
+
+[cmd]
+before = "if [ ! -d build ]; then mkdir build; fi && cd build && cmake .. && make"
+after = "mv build/include/gflags/* output/include/gflags && mv build/lib/* output/lib"
